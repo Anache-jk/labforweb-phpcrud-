@@ -1,0 +1,116 @@
+@media (min-width: 768px) {.dropdown:hover .dropdown-menu{margin-top:0;display:block}}
+
+.text1 {
+    position: absolute;
+    left: 40px;
+    top: 29px;
+    background: #fff;
+    padding: 0 10px;
+}
+.text2 {
+    position: absolute;
+    right: 40px;
+    top: 29px;
+    background: #fff;
+    padding: 0 10px;
+}
+
+th,td{
+    padding:20px;
+    align-items: center;
+
+}
+tr{
+    padding:20px;
+    align-items: center;
+}
+.textdop{
+    font-size: 30px;
+    background-color: #e6e6e6;
+    border-radius: 20px;
+}
+.imgcheck{
+    padding:20px;
+    max-width: 300px;
+}
+table{
+   text-align: center;
+    font-size: 20px;
+}
+label{
+    background-color: whitesmoke;
+    border-radius: 30%;
+    margin: 20px;
+}
+a{ color:black;}
+.mess{
+    
+    width:240px;height:60px;color: lightskyblue;
+
+}
+.megaby{
+    font-size: 15px;color:rgb(0, 0, 0); font-weight: bold;
+}
+.instruct{
+    font-size: 14px;
+}
+.imgmini{
+    max-width: 165px; max-height:100px;
+}
+.divmini{
+    max-width: 961px; font-size: 12px;color:grey;
+}
+.divmedium{
+    max-height:600px;
+}
+.trucks{
+    width: 95px;height: 100px;
+}
+.verymini{
+    max-height: 34px;
+}
+.adressa{
+    font-size: 12px; color: #999999;
+}
+.dostavka{
+    background-color: #f5f5f5;
+}
+.aviators{
+    color: #999999; font-size: 12px;
+}
+.settin{
+    color: grey;
+}
+.settintext{
+    font-size: 12px;
+}
+.markst{
+    background-color: #f3da0b;
+}
+.topinfo{
+    font-size: 12px;color:#555555;
+}
+.holder{
+    max-width: 40px;max-height: 17px;
+}
+.volgograd{
+    color: #1faee9;font-size: 14px;
+}
+.serch{
+    border-color: #e6e6e6; border-width: thin ;
+}
+.call{
+    max-width: 35px;max-height: 13px;
+}
+.bolds{
+    font-weight: bold;
+}
+.calend{
+    color: #999999; font-size: 12px;
+}
+.emall{
+    color: #1faee9;
+}
+.navbarcs{
+    background-color: white;
+}
