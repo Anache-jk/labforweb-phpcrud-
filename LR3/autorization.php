@@ -11,8 +11,8 @@ require_once 'vendor/signin.php';
     <link rel = "stylesheet" href = "cssfiles/main1.css" type="text/css" >
     <title>Авторизация</title>
 </head>
+    <? include('header.php');?>
 <body class = "position-relative">
-<? include('header.php');?>
 <div class = "d-flex container-xxl justify-content-center">
 <form class="form" action="" method ="post">
     <label class = "labels">Ваш логин(email)</label>
