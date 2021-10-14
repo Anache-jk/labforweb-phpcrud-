@@ -12,7 +12,7 @@ if($_SESSION['check'] !=1){
     <link rel="icon" href="/imgall/img/unnamed.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel = "stylesheet" href = "cssfiles/main1.css" type="text/css" >
-    <title>Купить памятники Памятник №010 из красного гранита по выгодной цене в Волгограде</title>
+    <title>Выбер могил</title>
 </head>
 <body class = "position-relative">
 
