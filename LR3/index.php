@@ -36,7 +36,6 @@ require_once 'vendor/signin.php';
         </div>
     </div>
     <? include('header.php');?>
-</header>
 <div class = "container pl-5" style="background-color: #f5f5f5">
     <div class="d-flex flex-row align-items-center justify-content-between">
 <div class = "h2 font-weight-bold container-fluid"> Памятник №010 из красного гранита</div>
