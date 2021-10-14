@@ -10,7 +10,7 @@ require_once 'vendor/signup.php';
     <link rel = "stylesheet" href = "cssfiles/main1.css" type="text/css" >
     <title>Регистрация</title>
 </head>
-<? include('header.php');?>
+    <? include('header.php');?>
 <body>
 <div class = "d-flex container-xxl justify-content-center p-4 ">
     <form action="" method = "post" class="form">
