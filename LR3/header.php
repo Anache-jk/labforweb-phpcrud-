@@ -9,7 +9,7 @@
     <title>Регистрация</title>
 </head>
     
-<body>
+<body class = "position-relative">
 
     <header class = "align-items-center">
 
