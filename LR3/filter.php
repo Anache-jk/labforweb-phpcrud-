@@ -17,7 +17,6 @@ if($_SESSION['check'] !=1){
 <body class = "position-relative">
 
 <? include('header.php');?>
-</header>
 <div class = "p-4 container d-flex flex-column justify-content-center">
     <div class = "d-flex justify-content-center">
     <form class = "d-flex flex-column justify-content-center" action="filter.php" method="get">
