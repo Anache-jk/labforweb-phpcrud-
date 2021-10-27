@@ -1,0 +1,25 @@
+.form{
+    margin: 20px;
+    padding: 20px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.textareastyle{
+    height: 200px;
+    width: 400px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.buttons{
+    border-radius: 30px;
+    height: 40px;
+    border: 0;
+    background-color: rgba(170,255,182,0.87);
+}
+ol{
+    list-style: none;
+    counter-reset: li;
+}
+li:before {
+    counter-increment: li;
+    content: counters(li, ".") ". ";
+}
