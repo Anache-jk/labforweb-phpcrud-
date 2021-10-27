@@ -12,8 +12,6 @@ require_once 'vendor/logictext.php';
         <title>Обработка текста</title>
     </head>
 <body class = "position-relative">
-
-
     <div class = "d-flex container-xxl justify-content-center ">
         <form class="form d-flex justify-content-center flex-column" action="" method ="post">
             <label class="form d-flex flex-column text-center">ПОЛЕ ДЛЯ ФОРМАТИРОВАНИЯ ТЕКСТА</label>
@@ -32,17 +30,18 @@ require_once 'vendor/logictext.php';
     </div>
 <div class = "d-flex container-fluid justify-content-center flex-row">
      <?php
-if($contentfromtext||$linklist||$text2) {
+    if($text==""){
+        echo '<h1>Введите что-нибудь!</h1>';
+    }
+elseif($contentfromtext||$linklist||$text2) {
     echo '<table><tr><th><h1 class = "text-center">Отформатированный текст</h1></th> <th><h1 class = "text-center">Сырой текст</h1></th></tr>
                     <tr><td>' . $contentfromtext . '</td><td></td></tr>
                     <tr><td>' . $linklist . '</td><td></td></tr>
                     <tr><td>' . $text2 . '</td><td>'. $text . '</td></tr> </table>';
 
-}
-    ?>
-
-
-
+} else{
+    '<h1>Произошла ошибка чтения текста!</h1>';
+}?>
 </div>
 
 <?php include('footerscript.php');?>
