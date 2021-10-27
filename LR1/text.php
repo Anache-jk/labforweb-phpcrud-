@@ -1,5 +1,5 @@
 <?php
-require_once 'vendor/logictext.php';
+require_once 'logictext.php';
 ?>
 
     <!DOCTYPE html>
