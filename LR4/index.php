@@ -16,7 +16,7 @@ require_once 'vendor/signin.php';
     <div class="container d-flex align-items-center justify-content-between">
              <a href = "<? if($_SESSION['check']){ echo 'filter.php';}else{ echo 'autorization.php';} ?>" style="text-decoration: none;font-size: 15px"> ВЗГЛЯНИТЕ НА НАШИ ЛУЧШИЕ РАБОТЫ </a>
 
-
+        <a href = "text.php">Здесь вы можете исправить свой текст!</a>
 
 
             <div class="d-flex flex-row justify-content-end ">
