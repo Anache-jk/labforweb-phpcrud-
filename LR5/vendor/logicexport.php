@@ -7,7 +7,6 @@ if(isset($_POST['export'])){
     $data->execute();
     $data = $data->fetchALL(PDO::FETCH_ASSOC);
     $exportDB = json_encode($data,JSON_UNESCAPED_UNICODE);
-    $infojson = json_decode($exportDB, true);
     $url='C:/OpenServer/domains/LR5/impex/deadpeople_exported.json';
     if(!file_exists($url)){
 file_put_contents($url,$exportDB,LOCK_EX);}
