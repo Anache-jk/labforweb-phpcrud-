@@ -31,9 +31,6 @@ if(isset($_POST['export'])&&$_SERVER["REQUEST_METHOD"] == "POST") {
     curl_setopt($request, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($request, CURLOPT_POSTFIELDS, $data);
     $response = curl_exec($request);
-    if (curl_errno($request)) {
-        $response = curl_error($request);
-    }
     curl_close ($request);
 }
 
