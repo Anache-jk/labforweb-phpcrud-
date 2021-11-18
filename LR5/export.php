@@ -1,7 +1,6 @@
 <?php
 require_once 'vendor/logicexport.php';
 ?>
-
 <?php include('header.php');?>
 <div class = "d-flex container-xxl justify-content-center p-4 ">
 <form action="" enctype="multipart/form-data" method="post" class = "form form border rounded d-flex flex-column justify-content-center">
@@ -10,8 +9,12 @@ require_once 'vendor/logicexport.php';
         <input type="submit" class = "buttons" name = "export" VALUE="Экспортировать">
     </div>
     <?php if($exportDB) {
-        echo '<div class = "p-4 d-flex flex-column"><h5>dead_people_exported передан скрипту worker.php по протоколу HTTP методом POST. Ссылка для скачивания - <a href="vendor/download.php" download>скачать</a></h5</div>';
-    }?>
+        echo '<div class = "p-4 d-flex flex-column"><h5>deadpeople_exported передан скрипту worker.php по протоколу HTTP методом POST. '.$response.'.</h5</div>';
+    }
+    else if($errors){
+        echo $errors;
+    }
+    ?>
 </form>
 </div>
 <?php include('footerscript.php');?>
