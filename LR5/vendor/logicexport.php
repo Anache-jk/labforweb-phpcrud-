@@ -1,9 +1,9 @@
 <?php
 require_once 'connect.php';
 require_once 'worker.php';
-$exporturl ='http://LR5/vendor/worker.php';
+$exporturl ='http://localhost/LR5/vendor/worker.php';
 $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/impex/';
-$url='C:/OpenServer/domains/LR5/impex/deadpeople_exported.json';
+$url = $_SERVER['DOCUMENT_ROOT'] .'/impex/deadpeople_exported.json';
 if(isset($_POST['export'])&&$_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "select * from `deadpeople`";
     $data = $connection->prepare($sql);
