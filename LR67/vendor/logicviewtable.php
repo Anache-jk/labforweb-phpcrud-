@@ -1,12 +1,12 @@
 <?php
 require_once 'crudclass.php';
-//reading
 $obj = new Crud();
 $deadhuman['FIO'] = htmlspecialchars($_POST['FIO']);
 $deadhuman['nameofplace'] = htmlspecialchars($_POST['nameofplace']);
 $deadhuman['dateburial'] = htmlspecialchars($_POST['dateburial']);
 $deadhuman['numaudience'] = htmlspecialchars($_POST['numaudience']);
 $erroscheck=0;
+
 if(isset($_POST['creating'])||(isset($_POST['editing']))) {
     if (preg_match("@[A-Za-zА-Яа-я]@u", $deadhuman['dateburial']) || $deadhuman['dateburial'] == "") {
         $arrayerrors['errdate'] = 'Дата содержит символы или пуста';
@@ -35,9 +35,13 @@ if(isset($_POST['creating'])||(isset($_POST['editing']))) {
         $obj->insertR($deadhuman['FIO'], $deadhuman['nameofplace'], $deadhuman['dateburial'], $deadhuman['numaudience'], $_FILES['imgpog']);
     }
     if ((isset($_POST['editing'])) && $erroscheck == 0) {
-        $idhuman = $_POST['humanid'];
-        $nameimg = $_POST['nameimg'];
-        $obj->updateR($idhuman, $nameimg, $deadhuman['FIO'], $deadhuman['nameofplace'], $deadhuman['dateburial'], $deadhuman['numaudience'], $_FILES['imgpog']);
+        $idhuman = htmlspecialchars((int)$_POST['humanid']);
+        $nameimg = htmlspecialchars($_POST['nameimg']);
+        if($idhuman && $nameimg){
+        $obj->updateR($idhuman, $nameimg, $deadhuman['FIO'], $deadhuman['nameofplace'], $deadhuman['dateburial'], $deadhuman['numaudience'], $_FILES['imgpog']);}
+        else{
+            echo "Некорректное имя картинки или id";
+            header("Location: viewtable.php");
     }
 }
 if(isset($_POST['deleting'])){
