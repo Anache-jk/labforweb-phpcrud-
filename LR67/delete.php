@@ -2,6 +2,7 @@
 require_once 'vendor/logicviewtable.php';
 $idhuman = htmlspecialchars($_GET['id']);
 $data = $obj->getById($idhuman);
+if(!$data){ die("У пользователя некорректный id"); }
 ?>
 <? include('header.php');?>
 <div class = "d-flex container-xxl justify-content-center p-4 ">
