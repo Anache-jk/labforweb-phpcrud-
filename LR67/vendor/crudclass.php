@@ -1,7 +1,5 @@
 <?php
 require_once ('connect.php');
-
-
 class Crud{
     private $connect;
 
@@ -15,10 +13,11 @@ class Crud{
     }
 
 public function showData(){
-        $query = "select deadpeople.id, deadpeople.imgsource, deadpeople.firstsecondthird_name,deadpeople.date_and_time,deadpeople.num_audience, places.name
+$query = "select deadpeople.id, deadpeople.imgsource, deadpeople.firstsecondthird_name,deadpeople.date_and_time,deadpeople.num_audience, places.name
         from deadpeople
         inner join places on deadpeople.id_place = places.id 
         order by deadpeople.id";
+ 
 $q = $this->connect->prepare($query) or die("ОШИБКА ЧТЕНИЯ ЗАПИСЕЙ!");
 $q->execute();
 $r = $q->fetchALL(PDO::FETCH_NUM);
@@ -26,7 +25,7 @@ return $r;
 }
 
 public function getById($id){
-    $query = "select deadpeople.id, deadpeople.imgsource, deadpeople.firstsecondthird_name,deadpeople.date_and_time,deadpeople.num_audience, places.name,places.id
+$query = "select deadpeople.id, deadpeople.imgsource, deadpeople.firstsecondthird_name,deadpeople.date_and_time,deadpeople.num_audience, places.name,places.id
         from deadpeople
         inner join places on deadpeople.id_place = places.id 
         where deadpeople.id = :id";
@@ -52,10 +51,8 @@ $q->execute(array(':srcimg'=>$srcimg,':fio'=>$fio, ':place'=>$place,':dates'=>$d
         header('location: ../index.php');}
 }
 
-
 public function insertR($fio,$place,$date,$audience,$file)
 {
-
     $sql = "INSERT INTO deadpeople SET imgsource=:srcimg, firstsecondthird_name=:fio, id_place=:place, date_and_time=:dates, num_audience=:audience";
     $q = $this->connect->prepare($sql);
     $srcimg = $this->uploadfile($file);
@@ -80,24 +77,24 @@ else{
 }
 }
 public function checkfile($file){
-        if($file['name'] == '')
-            return 'Выберете картинку';
-        if($file['size'] == 0)
-            return 'Картинка очень большая или отсутсвует';
-        $getMime = explode('.', $file['name']);
-        $mime = strtolower(end($getMime));
-        $types = array('jpg', 'png', 'gif', 'bmp', 'jpeg');
-        if(!in_array($mime, $types))
-            return 'Недопустимый тип файла';
+if($file['name'] == '')
+   return 'Выберете картинку';
+if($file['size'] == 0)
+   return 'Картинка очень большая или отсутсвует';
+$getMime = explode('.', $file['name']);
+$mime = strtolower(end($getMime));
+$types = array('jpg', 'png', 'gif', 'bmp', 'jpeg');
+if(!in_array($mime, $types))
+   return 'Недопустимый тип файла';
 
-        return "ок";
+return "ок";
     }
 
-   public function uploadfile($file){
-        $name = mt_rand(0, 10000) . $file['name'];
-        copy($file['tmp_name'], 'imgall/deadimg/' . $name);
-        return $name;
-    }
+public function uploadfile($file){
+$name = mt_rand(0, 10000) . $file['name'];
+copy($file['tmp_name'], 'imgall/deadimg/' . $name);
+return $name;
+}
 public function getplaces(){
     $sql = "select * from places";
     $places = $this->connect->prepare($sql);
