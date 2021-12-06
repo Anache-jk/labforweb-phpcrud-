@@ -8,7 +8,8 @@ $deadhuman['numaudience'] = htmlspecialchars($_POST['numaudience']);
 $erroscheck=0;
 
 if(isset($_POST['creating'])||(isset($_POST['editing']))) {
-    if (!preg_match("@[0-3][0-9].[01][0-9].[0-2][0-9][0-9][[0-9] [0-2][0-9]:[0-6][0-9]@u", $deadhuman['dateburial']) || $deadhuman['dateburial'] == "" || preg_match("@3[2-9].1[3-9].2[1-9][3-9][3-9] 2[4-9]:6[0-9]@u", $deadhuman['dateburial'])) {
+     if (!preg_match("@[0-3][0-9].[01][0-9].[0-2][0-9][0-9][[0-9] [0-2][0-9]:[0-6][0-9]@u", $deadhuman['dateburial']) || $deadhuman['dateburial'] == ""
+        || preg_match("@(3[2-9].[01][0-9].[0-2][0-9][0-9][[0-9])|([0-3][0-9].1[3-9].[0-2][0-9][0-9][[0-9])|([0-3][0-9].[01][0-9].(2[1-9][0-9][0-9])|(20[3-9][0-9])|(202[2-9])) (2[4-9]:[0-6][0-9])|([0-2][0-9]:6[0-9])@u", $deadhuman['dateburial'])) {
         $arrayerrors['errdate'] = 'Дата содержит некорректную информацию или пуста';
         $erroscheck++;
     }
