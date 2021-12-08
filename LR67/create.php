@@ -1,7 +1,6 @@
 <?php
 require_once 'vendor/logicviewtable.php';
 $row = $obj->getplaces();
-if(!$row){ die('В базе данных отсутствуют места захоронения'); }
 ?>
 <? include('header.php');?>
 <div class = "d-flex container-xxl justify-content-center p-4 ">
