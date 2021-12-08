@@ -17,7 +17,6 @@ require_once 'vendor/logicviewtable.php';
                 <tbody>
                 <?php
                 $result = $obj->showData();
-                if (!$result){die("Данных нет в таблице БД");}
                 foreach($result as $row):?>
                 <tr>
                     <tr>
