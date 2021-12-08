@@ -35,8 +35,8 @@ if(isset($_POST['creating'])||(isset($_POST['editing']))) {
         $obj->insertR($deadhuman['FIO'], $deadhuman['nameofplace'], $deadhuman['dateburial'], $deadhuman['numaudience'], $_FILES['imgpog']);
     }
     if ((isset($_POST['editing'])) && $erroscheck == 0) {
-        $idhuman = $_POST['humanid'];
-        $nameimg = $_POST['nameimg'];
+        $idhuman = htmlspecialchars($_POST['humanid']);
+        $nameimg = htmlspecialchars($_POST['nameimg']);
         $obj->updateR($idhuman, $nameimg, $deadhuman['FIO'], $deadhuman['nameofplace'], $deadhuman['dateburial'], $deadhuman['numaudience'], $_FILES['imgpog']);
     }
 }
