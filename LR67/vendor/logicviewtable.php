@@ -7,6 +7,7 @@ $deadhuman['FIO'] = htmlspecialchars($_POST['FIO']);
 $deadhuman['nameofplace'] = htmlspecialchars($_POST['nameofplace']);
 $deadhuman['dateburial'] = htmlspecialchars($_POST['dateburial']);
 $deadhuman['numaudience'] = htmlspecialchars($_POST['numaudience']);
+$deadhuman['img'] = htmlspecialchars($_FILES['imgpog']['name']);
 if(isset($_POST['creating'])||(isset($_POST['editing']))) {
     $erroscheck=0;
     if (!preg_match("@[0-3][0-9].[01][0-9].[0-2][0-9][0-9][[0-9] [0-2][0-9]:[0-6][0-9]@u", $deadhuman['dateburial']) || $deadhuman['dateburial'] == ""
