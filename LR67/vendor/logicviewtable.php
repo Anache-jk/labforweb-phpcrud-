@@ -1,6 +1,6 @@
 <?php
 require_once 'crudclass.php';
-//reading
+
 $obj = new Crud();
 $row = $obj->getplaces();
 $deadhuman['FIO'] = htmlspecialchars($_POST['FIO']);
