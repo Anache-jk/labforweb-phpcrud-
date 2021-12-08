@@ -14,7 +14,7 @@ $data = $obj->getById($humanid);
                 echo ' <div class = "err">'.$arrayerrors['errfio'] . '</div>';}
             ?>
             <label class = "labels">Фотография могилы</label>
-            <input type="file" name = "imgpog">
+            <input type="file" name = "imgpog" value = "$data[0][1]">
             <?php if($arrayerrors['errimg']){
                 echo ' <div class = "err">'.$arrayerrors['errimg']. '</div>';}
             ?>
