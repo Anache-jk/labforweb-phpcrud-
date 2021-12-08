@@ -22,7 +22,11 @@ public function showData(){
 $q = $this->connect->prepare($query) or die("ОШИБКА ЧТЕНИЯ ЗАПИСЕЙ!");
 $q->execute();
 $r = $q->fetchALL(PDO::FETCH_NUM);
-return $r;
+if($r){
+return $r;}
+else{
+    return "Данные в таблице не найдены";
+}
 }
 
 public function getById($id){
