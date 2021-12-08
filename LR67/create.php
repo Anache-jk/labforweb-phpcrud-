@@ -10,7 +10,7 @@ require_once 'vendor/logicviewtable.php';
             echo ' <div class = "err">'.$arrayerrors['errfio'] . '</div>';}
         ?>
         <label class = "labels">Фотография могилы</label>
-        <input type="file" name = "imgpog">
+        <input type="file" name = "imgpog" value = "<? echo $_SERVER['DOCUMENT_ROOT'] .'/imgall/deadimg/'. $deadhuman['img']?>>
         <?php if($arrayerrors['errimg']){
             echo ' <div class = "err">'.$arrayerrors['errimg']. '</div>';}
         ?>
