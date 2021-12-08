@@ -2,6 +2,7 @@
 require_once 'crudclass.php';
 //reading
 $obj = new Crud();
+$row = $obj->getplaces();
 $deadhuman['FIO'] = htmlspecialchars($_POST['FIO']);
 $deadhuman['nameofplace'] = htmlspecialchars($_POST['nameofplace']);
 $deadhuman['dateburial'] = htmlspecialchars($_POST['dateburial']);
