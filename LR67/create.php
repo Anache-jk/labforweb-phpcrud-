@@ -1,6 +1,5 @@
 <?php
 require_once 'vendor/logicviewtable.php';
-$row = $obj->getplaces();
 ?>
 <? include('header.php');?>
 <div class = "d-flex container-xxl justify-content-center p-4 ">
