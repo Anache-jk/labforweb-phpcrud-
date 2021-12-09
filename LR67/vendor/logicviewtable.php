@@ -1,5 +1,6 @@
 <?php
 require_once 'crudclass.php';
+require_once 'database.php';
 
 $obj = new CrudDeadpeople();
 $row = $obj->getplaces();
