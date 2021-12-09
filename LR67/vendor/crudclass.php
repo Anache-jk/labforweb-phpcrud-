@@ -6,21 +6,22 @@ class Crud{
     private $connect;
 
 public function __construct(){
-        try{
-        $this->connect = new PDO("mysql:host=localhost;dbname=funeraldb;charset=utf8", "root", '');
-        $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);}
-        catch(PDOException $e){
-            echo $e->getMessage();
-        }
+        
     }
+function getconnectdb($db){
+        $this->connect = $db;
+}
 
 public function showData(){
         $query = "select deadpeople.id, deadpeople.imgsource, deadpeople.firstsecondthird_name,deadpeople.date_and_time,deadpeople.num_audience, places.name
         from deadpeople
         inner join places on deadpeople.id_place = places.id 
         order by deadpeople.id";
-$q = $this->connect->prepare($query) or die("ОШИБКА ЧТЕНИЯ ЗАПИСЕЙ!");
+$q = $this->connect->prepare($query);
 $q->execute();
+if(!$q){
+        return "ОШИБКА ЧТЕНИЯ ЗАПИСЕЙ!";
+}
 $r = $q->fetchALL(PDO::FETCH_NUM);
 if($r){
 return $r;}
@@ -43,28 +44,28 @@ else{
     return "Произошла ошибка чтения по id";}
 }
 
-public function updateR($id,$nameimg,$fio,$place,$date,$audience,$file){
+public function update($id,$nameimg,$fio,$place,$date,$audience,$file){
 $checkid = $this->getById($id);
 if($checkid == "Произошла ошибка чтения по id"){
-   die("ID было изменено, обновление записи не произошло");
+   return "ID было изменено, обновление записи не произошло";
 }
 $sql = "UPDATE deadpeople SET imgsource=:srcimg, firstsecondthird_name=:fio, id_place=:place, date_and_time=:dates, num_audience=:audience where deadpeople.id = $id";
 $q = $this->connect->prepare($sql);
  if(file_exists($_SERVER['DOCUMENT_ROOT']. "/imgall/deadimg/" . $nameimg){
     unlink($_SERVER['DOCUMENT_ROOT']. "/imgall/deadimg/" . $nameimg);}
 else{
-    die("Название картинки было изменено, ошибка удаления");
+    return "Название картинки было изменено, ошибка удаления";
     }
 $srcimg = $this->uploadfile($file);
 $q->execute(array(':srcimg'=>$srcimg,':fio'=>$fio, ':place'=>$place,':dates'=>$date, ':audience'=>$audience));
     if($q){
         header('location: ../viewtable.php');}
     else{
-        die('Произошла ошибка обращения к базе данных');
+        return 'Произошла ошибка обращения к базе данных';
 }
 
 
-public function insertR($fio,$place,$date,$audience,$file)
+public function insert($fio,$place,$date,$audience,$file)
 {
 
     $sql = "INSERT INTO deadpeople SET imgsource=:srcimg, firstsecondthird_name=:fio, id_place=:place, date_and_time=:dates, num_audience=:audience";
@@ -74,24 +75,24 @@ public function insertR($fio,$place,$date,$audience,$file)
     if ($q) {
         header('location: ../viewtable.php');
     } else {
-        die ("Произошла ошибка обращения к базе данных");
+        return "Произошла ошибка обращения к базе данных";
     }
 }
 
 
-public function deleteR($id, $nameimg){
+public function delete($id, $nameimg){
 $sql="DELETE FROM deadpeople WHERE id=:id";
 $q = $this->connect->prepare($sql);
 $q->execute(array(':id'=>$id));
 if(file_exists($_SERVER['DOCUMENT_ROOT']. "/imgall/deadimg/" . $nameimg){
     unlink($_SERVER['DOCUMENT_ROOT']. "/imgall/deadimg/" . $nameimg);}
 else{
-    die("Название картинки было изменено, ошибка удаления");
+    return "Название картинки было изменено, ошибка удаления";
     }
 if($q){
 header('location: ../viewtable.php');}
 else{
-   die ("Произошла ошибка удаления из базы данных");
+   return "Произошла ошибка удаления из базы данных";
 }
 }
 public function checkfile($file){
