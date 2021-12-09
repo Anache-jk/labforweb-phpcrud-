@@ -19,8 +19,12 @@ require_once 'vendor/logicviewtable.php';
                 <option value="<?php echo $deadhuman['nameofplace']?>" selected><?php if($deadhuman['nameofplace']){echo $row[$deadhuman['nameofplace']-1]['name'];}else{ echo 'Выберите тип';}?></option>
                 <?php
                 foreach($row as $placed){
+                    if($deadhuman['nameofplace']){
                     if($placed["id"]!=$row[$deadhuman['nameofplace']-1]['id']){
-                    echo '<option value = "'.$placed["id"].'">'.$placed["name"].'</option>';}
+                    echo '<option value = "'.$placed["id"].'">'.$placed["name"].'</option>';}}
+                    else{
+                        echo '<option value = "'.$placed["id"].'">'.$placed["name"].'</option>';
+                    }
                 }?>
             </select>
         <?php if($arrayerrors['errplace']){
