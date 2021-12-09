@@ -2,7 +2,7 @@
 require_once ('connect.php');
 
 
-class Crud{
+class CrudDeadpeople{
     private $connect;
 
 public function __construct(){
