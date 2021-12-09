@@ -52,8 +52,7 @@ $q->execute(array(':srcimg'=>$srcimg,':fio'=>$fio, ':place'=>$place,':dates'=>$d
     if($q){
         header('location: ../viewtable.php');}
     else{
-        return '<script>alert("Произошла ошибка обращения к базе данных")</script>';
-        header('location: ../index.php');}
+        die('Произошла ошибка обращения к базе данных');
 }
 
 
@@ -67,7 +66,7 @@ public function insertR($fio,$place,$date,$audience,$file)
     if ($q) {
         header('location: ../viewtable.php');
     } else {
-        return '<script>alert("Произошла ошибка обращения к базе данных")</script>';
+        die ("Произошла ошибка обращения к базе данных");
     }
 }
 
@@ -80,7 +79,7 @@ unlink($_SERVER['DOCUMENT_ROOT']. "/imgall/deadimg/" . $nameimg);
 if($q){
 header('location: ../viewtable.php');}
 else{
-    return '<script>alert("Произошла ошибка удаления из базы данных")</script>';
+   die ("Произошла ошибка удаления из базы данных");
 }
 }
 public function checkfile($file){
