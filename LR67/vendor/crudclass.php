@@ -5,7 +5,7 @@ require_once ('connect.php');
 class Crud{
     private $connect;
 
-    public function __construct(){
+public function __construct(){
         try{
         $this->connect = new PDO("mysql:host=localhost;dbname=funeraldb;charset=utf8", "root", '');
         $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);}
@@ -106,13 +106,13 @@ public function checkfile($file){
             return 'Недопустимый тип файла';
 
         return 'ок';
-    }
+}
 
-   public function uploadfile($file){
+public function uploadfile($file){
         $name = mt_rand(0, 10000) . $file['name'];
         copy($file['tmp_name'], 'imgall/deadimg/' . $name);
         return $name;
-    }
+}
 public function getplaces(){
     $sql = "select * from places";
     $places = $this->connect->prepare($sql);
