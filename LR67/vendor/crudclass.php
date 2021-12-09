@@ -44,9 +44,17 @@ else{
 }
 
 public function updateR($id,$nameimg,$fio,$place,$date,$audience,$file){
+$checkid = $this->getById($id);
+if($checkid == "Произошла ошибка чтения по id"){
+   die("ID было изменено, обновление записи не произошло");
+}
 $sql = "UPDATE deadpeople SET imgsource=:srcimg, firstsecondthird_name=:fio, id_place=:place, date_and_time=:dates, num_audience=:audience where deadpeople.id = $id";
 $q = $this->connect->prepare($sql);
-unlink($_SERVER['DOCUMENT_ROOT']. "/imgall/deadimg/" . $nameimg);
+ if(file_exists($_SERVER['DOCUMENT_ROOT']. "/imgall/deadimg/" . $nameimg){
+    unlink($_SERVER['DOCUMENT_ROOT']. "/imgall/deadimg/" . $nameimg);}
+else{
+    die("Название картинки было изменено, ошибка удаления");
+    }
 $srcimg = $this->uploadfile($file);
 $q->execute(array(':srcimg'=>$srcimg,':fio'=>$fio, ':place'=>$place,':dates'=>$date, ':audience'=>$audience));
     if($q){
@@ -75,7 +83,11 @@ public function deleteR($id, $nameimg){
 $sql="DELETE FROM deadpeople WHERE id=:id";
 $q = $this->connect->prepare($sql);
 $q->execute(array(':id'=>$id));
-unlink($_SERVER['DOCUMENT_ROOT']. "/imgall/deadimg/" . $nameimg);
+if(file_exists($_SERVER['DOCUMENT_ROOT']. "/imgall/deadimg/" . $nameimg){
+    unlink($_SERVER['DOCUMENT_ROOT']. "/imgall/deadimg/" . $nameimg);}
+else{
+    die("Название картинки было изменено, ошибка удаления");
+    }
 if($q){
 header('location: ../viewtable.php');}
 else{
