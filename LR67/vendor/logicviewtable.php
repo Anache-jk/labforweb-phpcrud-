@@ -1,8 +1,10 @@
 <?php
 require_once 'crudclass.php';
 
-$obj = new Crud();
+$obj = new CrudDeadpeople();
 $row = $obj->getplaces();
+$conn = new database();
+$obj->getconnectdb($conn->connect());
 $deadhuman['FIO'] = htmlspecialchars($_POST['FIO']);
 $deadhuman['nameofplace'] = htmlspecialchars($_POST['nameofplace']);
 $deadhuman['dateburial'] = htmlspecialchars($_POST['dateburial']);
@@ -34,16 +36,16 @@ if(isset($_POST['creating'])||(isset($_POST['editing']))) {
     }
 
     if ((isset($_POST['creating'])) && $erroscheck == 0) {
-        $obj->insertR($deadhuman['FIO'], $deadhuman['nameofplace'], $deadhuman['dateburial'], $deadhuman['numaudience'], $_FILES['imgpog']);
+        $obj->insert($deadhuman['FIO'], $deadhuman['nameofplace'], $deadhuman['dateburial'], $deadhuman['numaudience'], $_FILES['imgpog']);
     }
     if ((isset($_POST['editing'])) && $erroscheck == 0) {
         $idhuman = htmlspecialchars($_POST['humanid']);
         $nameimg = htmlspecialchars($_POST['nameimg']);
-        $obj->updateR($idhuman, $nameimg, $deadhuman['FIO'], $deadhuman['nameofplace'], $deadhuman['dateburial'], $deadhuman['numaudience'], $_FILES['imgpog']);
+        $obj->update($idhuman, $nameimg, $deadhuman['FIO'], $deadhuman['nameofplace'], $deadhuman['dateburial'], $deadhuman['numaudience'], $_FILES['imgpog']);
     }
 }
 if(isset($_POST['deleting'])){
     $id = htmlspecialchars($_POST['idhuman']);
     $nameim = htmlspecialchars($_POST['imgname']);
-    $obj->deleteR($id,$nameim);
+    $obj->delete($id,$nameim);
 }
